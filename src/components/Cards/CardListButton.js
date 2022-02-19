@@ -37,7 +37,7 @@ export default function CardSocialTraffic() {
       setPupuk(data.pupuk === 1 ? true : false)
       setHumidifier(data.humidifier === 1 ? true : false)
     })
-  }, [])
+  }, [controlRef])
 
   return (
     <>
