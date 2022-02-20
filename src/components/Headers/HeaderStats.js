@@ -1,23 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { collection, onSnapshot } from 'firebase/firestore'
-import { firestore } from "config";
+// import { collection, onSnapshot } from 'firebase/firestore'
+// import { firestore } from "config";
+import { ref, onValue } from 'firebase/database'
+import { database } from "config";
 
 import CardStats from "components/Cards/CardStats.js";
 
 export default function HeaderStats() {
+  
   const [data, setData] = useState({})
-
+  
   useEffect(() => {
-    onSnapshot(collection(firestore, 'tahap1', 'sandro', 'data'), docSnap => {
-      let _data = {}
-      docSnap.forEach(doc => {
-        _data = {
-          ..._data,
-          [doc.id]: doc.data().value
-        }
+    const sensorRef = ref(database, 'sandro_sensor')
+    onValue(sensorRef, (snapshot) => {
+      const data = snapshot.val();
+      setData({
+        cahaya: data.cahaya,
+        kelembaban_tanah: data.kelembaban_tanah,
+        ph_tanah: data.ph_tanah,
+        kelembaban_udara: data.kelembaban_udara,
+        suhu_udara: data.suhu_udara,
       })
-      setData(_data)
     })
+    // onSnapshot(collection(firestore, 'tahap1', 'sandro', 'data'), docSnap => {
+    //   let _data = {}
+    //   docSnap.forEach(doc => {
+    //     _data = {
+    //       ..._data,
+    //       [doc.id]: doc.data().value
+    //     }
+    //   })
+    //   setData(_data)
+    // })
   }, [])
 
   return (
