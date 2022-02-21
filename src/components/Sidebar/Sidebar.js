@@ -112,16 +112,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/settings") !== -1
+                    (window.location.href.indexOf("/admin/kelembaban-udara") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/settings"
+                  to="/admin/kelembaban-udara"
                 >
                   <i
                     className={
-                      "fas fa-tools mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/settings") !== -1
+                      "fas fa-wind mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/kelembaban-udara") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -134,16 +134,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/tables") !== -1
+                    (window.location.href.indexOf("/admin/suhu-udara") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/tables"
+                  to="/admin/suhu-udara"
                 >
                   <i
                     className={
-                      "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/tables") !== -1
+                      "fas fa-wind mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/suhu-udara") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -156,16 +156,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/maps") !== -1
+                    (window.location.href.indexOf("/admin/ph-tanah") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/maps"
+                  to="/admin/ph-tanah"
                 >
                   <i
                     className={
-                      "fas fa-map-marked mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/maps") !== -1
+                      "fas fa-globe mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/ph-tanah") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -178,16 +178,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/maps") !== -1
+                    (window.location.href.indexOf("/admin/kelembaban-tanah") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/maps"
+                  to="/admin/kelembaban-tanah"
                 >
                   <i
                     className={
-                      "fas fa-map-marked mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/maps") !== -1
+                      "fas fa-globe mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/kelembaban-tanah") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -200,16 +200,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/maps") !== -1
+                    (window.location.href.indexOf("/admin/intensitas-cahaya") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/maps"
+                  to="/admin/intensitas-cahaya"
                 >
                   <i
                     className={
                       "fas fa-lightbulb mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/maps") !== -1
+                      (window.location.href.indexOf("/admin/intensitas-cahaya") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
