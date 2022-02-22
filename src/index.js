@@ -25,7 +25,9 @@ ReactDOM.render(
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
       <Route path="/profile" exact component={Profile} />
-      <Route path="/" exact component={Admin} />
+      <Route path="/" exact>
+        <Redirect to="/admin" />
+      </Route>
       {/* add redirect for first page */}
       <Redirect from="*" to="/" />
     </Switch>
