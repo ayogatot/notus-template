@@ -12,6 +12,10 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 import Dashboard from "views/admin/Dashboard.js";
 import KelembabanUdara from "views/admin/KelembabanUdara";
+import KelembabanTanah from "views/admin/KelembabanTanah";
+import PHTanah from "views/admin/PHTanah";
+import IntesitasCahaya from "views/admin/IntensitasCahaya";
+import SuhuUdara from "views/admin/SuhuUdara";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
@@ -28,6 +32,10 @@ export default function Admin() {
           <Switch>
             <Route path="/admin/dashboard" exact component={Dashboard} />
             <Route path="/admin/kelembaban-udara" exact component={KelembabanUdara} />
+            <Route path="/admin/suhu-udara" exact component={SuhuUdara} />
+            <Route path="/admin/kelembaban-tanah" exact component={KelembabanTanah} />
+            <Route path="/admin/ph-tanah" exact component={PHTanah} />
+            <Route path="/admin/intensitas-cahaya" exact component={IntesitasCahaya} />
             <Route path="/admin/maps" exact component={Maps} />
             <Route path="/admin/settings" exact component={Settings} />
             <Route path="/admin/tables" exact component={Tables} />
