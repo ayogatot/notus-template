@@ -3,33 +3,21 @@ import Chart from "chart.js";
 
 export default function HistoryChart(props) {
   useEffect(() => {
+    const propsData = props.data.slice(0, 6).sort((a, b) => a.createdAt - b.createdAt)
+    const labels = propsData.map(i => i.tglText)
+    const data = propsData.map(i => i[props.source])
     const config = {
       type: "line",
       data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-        ],
+        labels,
         datasets: [
           {
             label: new Date().getFullYear(),
             backgroundColor: "#4c51bf",
             borderColor: "#4c51bf",
-            data: [65, 78, 66, 44, 56, 67, 75],
+            data,
             fill: false,
           },
-          // {
-          //   label: new Date().getFullYear() - 1,
-          //   fill: false,
-          //   backgroundColor: "#fff",
-          //   borderColor: "#fff",
-          //   data: [40, 68, 86, 74, 56, 60, 87],
-          // },
         ],
       },
       options: {
@@ -105,7 +93,7 @@ export default function HistoryChart(props) {
     };
     var ctx = document.getElementById("line-chart").getContext("2d");
     window.myLine = new Chart(ctx, config);
-  }, []);
+  }, [props.data, props.source]);
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-700">
@@ -121,9 +109,11 @@ export default function HistoryChart(props) {
         </div>
         <div className="p-4 flex-auto">
           {/* Chart */}
-          <div className="relative h-350-px">
-            <canvas id="line-chart"></canvas>
-          </div>
+          {/* {props.data.length > 0 && ( */}
+            <div className="relative h-350-px">
+              <canvas id="line-chart"></canvas>
+            </div>
+          {/* )} */}
         </div>
       </div>
     </>

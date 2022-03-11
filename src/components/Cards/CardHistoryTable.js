@@ -3,35 +3,6 @@ import React from "react";
 // components
 
 export default function CardHistoryTable(props) {
-  const data = [
-    {
-      id: 1,
-      kelembaban_tanah: 123,
-      ph_tanah: 13,
-      intensitas_cahaya: 49,
-      kelembaban_udara: 89,
-      suhu_udara: 79,
-      tglText: '2021-02-22',
-    },
-    {
-      id: 2,
-      kelembaban_tanah: 126,
-      ph_tanah: 24,
-      intensitas_cahaya: 53,
-      kelembaban_udara: 74,
-      suhu_udara: 81,
-      tglText: '2021-02-23',
-    },
-    {
-      id: 3,
-      kelembaban_tanah: 153,
-      ph_tanah: 43,
-      intensitas_cahaya: 39,
-      kelembaban_udara: 79,
-      suhu_udara: 71,
-      tglText: '2021-02-24',
-    },
-  ]
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -58,7 +29,7 @@ export default function CardHistoryTable(props) {
             <thead>
               <tr>
                 <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  id
+                  No
                 </th>
                 <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                   Tanggal
@@ -69,11 +40,11 @@ export default function CardHistoryTable(props) {
               </tr>
             </thead>
             <tbody>
-              {data.map(i => {
+              {props.data.sort((a, b) => b.createdAt - a.createdAt).map((i, key) => {
                 return (
                   <tr>
                     <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                      {i.id}
+                      {key + 1}
                     </th>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                      {i.tglText}
