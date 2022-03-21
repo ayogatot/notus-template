@@ -11,6 +11,7 @@ export default function CardSocialTraffic() {
   const [air, setAir] = useState(true)
   const [kipas, setKipas] = useState(true)
   const [humidifier, setHumidifier] = useState(true)
+  const [dehumidifier, setDehumidifier] = useState(true)
 
   const setToFB = (type, value) => {
     const data = {
@@ -19,6 +20,7 @@ export default function CardSocialTraffic() {
       air: air ? 1 : 0,
       kipas: kipas ? 1 : 0,
       humidifier: humidifier ? 1 : 0,
+      dehumidifier: dehumidifier ? 1 : 0,
     }
     
     set(controlRef, { 
@@ -36,12 +38,13 @@ export default function CardSocialTraffic() {
       setKipas(data.kipas === 1 ? true : false)
       setPupuk(data.pupuk === 1 ? true : false)
       setHumidifier(data.humidifier === 1 ? true : false)
+      setDehumidifier(data.dehumidifier === 1 ? true : false)
     })
   }, [controlRef])
 
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+      <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded mt-12">
         <div className="rounded-t mb-0 px-4 py-3 border-0">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
@@ -147,6 +150,23 @@ export default function CardSocialTraffic() {
                     }}
                   >
                     {humidifier ? "ON" : "OFF"}
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                  Dehumidifier
+                </th>
+                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <button
+                    className={`${dehumidifier ? "bg-emerald-500 active:bg-emerald-600" : "bg-red-500 active:bg-red-600"} text-white text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
+                    type="button"
+                    onClick={() => {
+                      setHumidifier(!humidifier)
+                      setToFB('dehumidifier', !dehumidifier ? 1 : 0)
+                    }}
+                  >
+                    {dehumidifier ? "ON" : "OFF"}
                   </button>
                 </td>
               </tr>

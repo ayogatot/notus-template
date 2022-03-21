@@ -126,7 +126,7 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Kelembaban Udara
+                  Kelembapan Udara
                 </Link>
               </li>
 
@@ -192,7 +192,7 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Kelembaban Tanah
+                  Kelembapan Tanah
                 </Link>
               </li>
 

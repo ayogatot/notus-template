@@ -43,16 +43,16 @@ export default function HeaderStats() {
   return (
     <>
       {/* Header */}
-      <div className="relative bg-lightBlue-600 md:pt-32 pt-12">
+      <div className="relative bg-lightBlue-600 mb-24 md:pt-32 pt-12">
         <div className="px-4 md:px-10 w-full">
           <div>
             {/* Card stats */}
             <div className="flex flex-wrap">
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                {(isShowAll && isShowKU) && (
+              {(isShowAll && isShowKU) && (
+                <div className="w-full lg:w-6/12 xl:w-3/12 px-4 my-4">
                   <CardStats
-                    statSubtitle="Kelembaban Udara"
-                    statTitle={data?.kelembaban_udara || 0}
+                    statSubtitle="Kelembapan Udara"
+                    statTitle={(data?.kelembaban_udara || 0) + " %"}
                     statArrow="up"
                     statPercent="3.48"
                     statPercentColor="text-emerald-500"
@@ -60,13 +60,13 @@ export default function HeaderStats() {
                     statIconName="fas fa-wind"
                     statIconColor="bg-red-500"
                   />
-                )}
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                {(isShowAll && isShowSU) && (
+                </div>
+              )}
+              {(isShowAll && isShowSU) && (
+                <div className="w-full lg:w-6/12 xl:w-3/12 px-4 my-4">
                   <CardStats
                     statSubtitle="Suhu Udara"
-                    statTitle={data?.suhu_udara || 0}
+                    statTitle={(data?.suhu_udara || 0) + " Celcius"}
                     statArrow="down"
                     statPercent="3.48"
                     statPercentColor="text-red-500"
@@ -74,13 +74,13 @@ export default function HeaderStats() {
                     statIconName="fas fa-wind"
                     statIconColor="bg-orange-500"
                   />
-                )}
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                {(isShowAll && isShowIC) && (
+                </div>
+              )}
+              {(isShowAll && isShowIC) && (
+                <div className="w-full lg:w-6/12 xl:w-3/12 px-4 my-4">
                   <CardStats
                     statSubtitle="Intensitas Cahaya"
-                    statTitle={data?.cahaya || 0}
+                    statTitle={(data?.cahaya || 0) + " Lux"}
                     statArrow="up"
                     statPercent="12"
                     statPercentColor="text-emerald-500"
@@ -88,19 +88,10 @@ export default function HeaderStats() {
                     statIconName="fas fa-lightbulb"
                     statIconColor="bg-yellow-500"
                   />
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="relative bg-lightBlue-600 md:pt-12 pb-32 pt-12">
-        <div className="px-4 md:px-10 mx-auto w-full">
-          <div>
-            {/* Card stats */}
-            <div className="flex flex-wrap">
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                {(isShowAll && isShowPT) && (
+                </div>
+              )}
+              {(isShowAll && isShowPT) && (
+                <div className="w-full lg:w-6/12 xl:w-3/12 px-4 my-4">
                   <CardStats
                     statSubtitle="pH Tanah"
                     statTitle={data?.ph_tanah || 0}
@@ -111,13 +102,13 @@ export default function HeaderStats() {
                     statIconName="fas fa-globe"
                     statIconColor="bg-lightBlue-500"
                   />
-                )}
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                {(isShowAll && isShowKT) && (
+                </div>
+              )}
+              {(isShowAll && isShowKT) && (
+                <div className="w-full lg:w-6/12 xl:w-3/12 px-4 my-4">
                   <CardStats
                     statSubtitle="Kelembaban Tanah"
-                    statTitle={data?.kelembaban_tanah || 0}
+                    statTitle={(data?.kelembaban_tanah || 0) + " %"}
                     statArrow="down"
                     statPercent="1.10"
                     statPercentColor="text-orange-500"
@@ -125,8 +116,8 @@ export default function HeaderStats() {
                     statIconName="fas fa-globe"
                     statIconColor="bg-purple-500"
                   />
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -21,9 +21,9 @@ export default function KelembabanUdara() {
 
   return (
     <>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap pt-12">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-          <HistoryChart name="Kelembaban Udara" source="kelembaban_udara" data={data} />
+          <HistoryChart name="Kelembapan Udara" source="kelembaban_udara" data={data} />
         </div>
         <div className="w-full xl:w-4/12 px-4">
           {/* <CardBarChart /> */}

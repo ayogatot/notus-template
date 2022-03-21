@@ -21,7 +21,7 @@ export default function IntensitasCahaya() {
 
   return (
     <>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap pt-12">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
           <HistoryChart name="Intensitas Cahaya" source="cahaya" data={data} />
         </div>

@@ -21,9 +21,9 @@ export default function PHTanah() {
 
   return (
     <>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap pt-12">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-          <HistoryChart name="Kelembaban Tanah" source="kelembaban_tanah" data={data} />
+          <HistoryChart name="Kelembapan Tanah" source="kelembaban_tanah" data={data} />
         </div>
         <div className="w-full xl:w-4/12 px-4">
           {/* <CardBarChart /> */}
