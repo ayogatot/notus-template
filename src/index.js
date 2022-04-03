@@ -9,6 +9,7 @@ import "assets/styles/tailwind.css";
 
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
+import Huda from "layouts/Huda.js";
 
 // views without layouts
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       {/* add routes with layouts */}
       <Route path="/admin" component={Admin} />
       <Route path="/auth" component={Auth} />
+      <Route path="/huda" component={Huda} />
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
       <Route path="/profile" exact component={Profile} />
@@ -29,7 +31,7 @@ ReactDOM.render(
         <Redirect to="/admin" />
       </Route>
       {/* add redirect for first page */}
-      <Redirect from="*" to="/" />
+      {/* <Redirect from="*" to="/" /> */}
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
