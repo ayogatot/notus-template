@@ -44,7 +44,7 @@ export default function HeaderAulia() {
                   statSubtitle="Keranjang Buah"
                   suhu={(data?.buah?.suhu || 0) + " °C"}
                   ph={(data?.buah?.ph || 0)}
-                  intensitasCahaya={(data?.buah?.intensitasCahaya || 0) + " Lux"}
+                  intensitasCahaya={(data?.buah?.intensitasCahaya || 0)}
                   statArrow="up"
                   statPercent="3.48"
                   statPercentColor="text-emerald-500"
@@ -59,7 +59,7 @@ export default function HeaderAulia() {
                   statSubtitle="Keranjang Sayur"
                   suhu={(data?.sayur?.suhu || 0) + " °C"}
                   ph={(data?.sayur?.ph || 0)}
-                  intensitasCahaya={(data?.sayur?.intensitasCahaya || 0) + " Lux"}
+                  intensitasCahaya={(data?.sayur?.intensitasCahaya || 0)}
                   statArrow="down"
                   statPercent="3.48"
                   statPercentColor="text-red-500"
