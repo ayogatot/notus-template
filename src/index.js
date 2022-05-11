@@ -10,6 +10,7 @@ import "assets/styles/tailwind.css";
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
 import Huda from "layouts/Huda.js";
+import Aulia from "layouts/Aulia.js";
 
 // views without layouts
 
@@ -24,6 +25,7 @@ ReactDOM.render(
       <Route path="/admin" component={Admin} />
       <Route path="/auth" component={Auth} />
       <Route path="/huda" component={Huda} />
+      <Route path="/aulia" component={Aulia} />
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
       <Route path="/profile" exact component={Profile} />
