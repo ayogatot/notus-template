@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import CardStats from "components/Cards/CardStats.js";
-import { ref, onValue } from 'firebase/database'
-import { database } from "config";
+import { ref, onValue, set } from 'firebase/database'
+import { database, firestore } from "config";
+import { collection, onSnapshot } from 'firebase/firestore'
+
+import HistoryChart from "components/Cards/HudaHistory";
+import CardHistoryTable from "components/Cards/CardHistoryTable.js";
 
 export default function Dashboard() {
   const [data, setData] = useState({})
+  const [dataHistory, setDataHistory] = useState([])
+  const [source, setSource] = useState(null)
 
   useEffect(() => {
     const sensorRef = ref(database, 'huda')
@@ -18,9 +24,23 @@ export default function Dashboard() {
         ph_minyak: data.ph_minyak,
         turbidity: data.turbidity,
         warna_minyak: +data.warna_minyak >= 40 ? 'Baik' : 'Jelek',
+        deteksi: data.deteksi
       })
     })
+
+    onSnapshot(collection(firestore, 'tahap1', 'huda', 'history'), docSnap => {
+      let _data = []
+      docSnap.forEach(doc => {
+        _data.push(doc.data())
+      })
+      setDataHistory(_data)
+    })
   }, [])
+
+  const onClick = () => {
+    const sensorRef = ref(database, 'huda/deteksi')
+    set(sensorRef, !data?.deteksi)
+  }
 
   return (
     <>
@@ -148,6 +168,61 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      <div className="my-6 flex flex-row items-center justify-center">
+        <p style={{ fontSize: '20pt', marginTop: '30px', fontWeight: 'bold' }}>Grafik Monitoring</p>
+      </div>
+      <div className="my-6 flex flex-row items-center justify-center">
+        <button onClick={() => onClick()} style={data?.deteksi ? style.buttonActive : style.buttonReset}>{data?.deteksi ? 'Start Deteksi' : 'Reset Deteksi'}</button>
+        <p style={{ marginLeft: '10px', marginRight: '10px', }}>|</p>
+        <select onChange={val => setSource(val.target.value)} style={{ borderRadius: '3px' }}>
+          <option>---</option>
+          <option value="ph_minyak">PH Minyak</option>
+          <option value="conductivity" >Conductivity</option>
+          <option value="turbidity" >Turbidity</option>
+          <option value="warna_minyak" >Warna Minyak</option>
+          <option value="minyak_baik" >Minyak Baik</option>
+          <option value="minyak_jahat" >Minyak Jahat</option>
+          <option value="total_proses" >Total Proses</option>
+        </select>
+      </div>
+      <div className="mt-4 flex flex-row items-center justify-center">
+        <div className="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
+          <HistoryChart name={source && mappingName[source]} source={source} data={dataHistory} />
+        </div>
+        <div className="w-full xl:w-3/12 px-4">
+          {/* <CardBarChart /> */}
+          <CardHistoryTable source={source} title={mappingName[source]} data={source ? dataHistory : []} />
+        </div>
+      </div>
     </>
   );
+}
+
+const style = {
+  buttonActive: {
+    backgroundColor: '#C70A80',
+    color: '#fff',
+    padding: '13px',
+    borderRadius: '3px',
+    fontWeight: 'bold',
+    fontSize: '8pt',
+  },
+  buttonReset: {
+    backgroundColor: '#fff',
+    color: '#C70A80',
+    padding: '13px',
+    borderRadius: '3px',
+    fontWeight: 'bold',
+    fontSize: '8pt',
+  }
+}
+
+const mappingName = {
+  ph_minyak: 'PH Minyak',
+  conductivity: 'Conductivity',
+  turbidity: 'Turbidity',
+  warna_minyak: 'Warna Minyak',
+  minyak_baik: 'Minyak Baik',
+  minyak_jahat: 'Minyak Jahat',
+  total_proses: 'Total Proses',
 }
