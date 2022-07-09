@@ -180,8 +180,6 @@ export default function Dashboard() {
           <option value="conductivity" >Conductivity</option>
           <option value="turbidity" >Turbidity</option>
           <option value="warna_minyak" >Warna Minyak</option>
-          <option value="minyak_baik" >Minyak Baik</option>
-          <option value="minyak_jahat" >Minyak Jahat</option>
           <option value="total_proses" >Total Proses</option>
         </select>
       </div>
