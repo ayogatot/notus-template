@@ -3,6 +3,14 @@ import React from "react";
 // components
 
 export default function CardHistoryTable(props) {
+  const mappingSatuan = {
+    kelembaban_udara: '%',
+    cahaya: 'lux',
+    kelembaban_tanah: '%',
+    ph_tanah: '',
+    suhu_udara: '℃'
+  }
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -50,7 +58,7 @@ export default function CardHistoryTable(props) {
                      {i.tglText}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      {i[props.source]}
+                      {i[props.source]} {mappingSatuan[props.source]}
                     </td>
                   </tr>
                 )

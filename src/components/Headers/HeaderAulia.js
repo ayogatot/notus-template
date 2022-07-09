@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import { collection, onSnapshot } from 'firebase/firestore'
-// import { firestore } from "config";
+import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore'
+import { firestore } from "config";
 import { ref, onValue } from 'firebase/database'
 import { database } from "config";
 
@@ -8,6 +8,7 @@ import CardAulia from "components/Cards/CardAulia.js";
 
 export default function HeaderAulia() {
   const [data, setData] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const sensorRef = ref(database, 'aulia')
@@ -19,17 +20,31 @@ export default function HeaderAulia() {
         total
       })
     })
-    // onSnapshot(collection(firestore, 'tahap1', 'sandro', 'data'), docSnap => {
-    //   let _data = {}
-    //   docSnap.forEach(doc => {
-    //     _data = {
-    //       ..._data,
-    //       [doc.id]: doc.data().value
-    //     }
-    //   })
-    //   setData(_data)
-    // })
   }, [])
+
+  const confirmationModal = async () => {
+    setIsLoading(true)
+    onSnapshot(collection(firestore, 'tahap1', 'aulia', 'history'), docSnap => {
+      const data = []
+      if(!docSnap.size) {
+        setTimeout(() => {
+          setIsLoading(false)
+          alert('History is already empty')
+        }, 1000)
+      }
+      docSnap.forEach(async d => {
+        data.push(d.id)
+        await deleteDoc(doc(firestore, 'tahap1', 'aulia', 'history', d.id))
+
+        if (data.length === docSnap.size) {
+          setTimeout(() => {
+            setIsLoading(false)
+            alert('History is already empty')
+          }, 1000)
+        }
+      })
+    })
+  }
 
   return (
     <>
@@ -82,6 +97,16 @@ export default function HeaderAulia() {
                   statIconColor="bg-lightBlue-500"
                   type="total"
                 />
+              </div>
+              <div className="w-full lg:w-6/12 xl:w-3/12 px-4 my-4">
+                <p className="text-white font-bold">Reset History</p>
+                <button
+                  className={`bg-red-500 active:bg-emerald-600 text-white text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
+                  type="button"
+                  onClick={() => confirmationModal()}
+                >
+                  {isLoading ? "Loading..." : "Reset"}
+                </button>
               </div>
             </div>
           </div>
