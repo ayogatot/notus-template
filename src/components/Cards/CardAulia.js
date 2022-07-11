@@ -31,7 +31,7 @@ export default function CardStats({
                     <span className="font-light text-sm text-gray-700">pH: </span><span className="ml-3">{ph}</span>
                   </p>
                   <p className="font-semibold text-xl text-blueGray-700">
-                    <span className="font-light text-sm text-gray-700">Intensitas Cahaya: </span><span className="ml-3">{intensitasCahaya}</span>
+                    <span className="font-light text-sm text-gray-700">Intensitas Cahaya: </span><span style={{fontSize: 16}} className="ml-3">{intensitasCahaya}</span>
                   </p>
                 </>
               ) : (

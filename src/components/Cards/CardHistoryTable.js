@@ -8,7 +8,13 @@ export default function CardHistoryTable(props) {
     cahaya: 'lux',
     kelembaban_tanah: '%',
     ph_tanah: '',
-    suhu_udara: '℃'
+    suhu_udara: '℃', 
+    intensitasSayur: 'lux',
+    intensitasBuah: 'lux',
+    phSayur: '',
+    phBuah: '',
+    suhuSayur: '℃',
+    suhuBuah: '℃',
   }
 
   return (
@@ -58,7 +64,7 @@ export default function CardHistoryTable(props) {
                      {i.tglText}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      {i[props.source]} {mappingSatuan[props.source]}
+                      {i[props.source]} {mappingSatuan[props.source] || ''}
                     </td>
                   </tr>
                 )
