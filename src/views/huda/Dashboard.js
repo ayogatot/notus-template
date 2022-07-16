@@ -23,7 +23,7 @@ export default function Dashboard() {
         minyak_proses: data.minyak_proses,
         ph_minyak: data.ph_minyak,
         turbidity: data.turbidity,
-        warna_minyak: +data.warna_minyak >= 40 ? 'Baik' : 'Jelek',
+        warna_minyak: data.warna_minyak,
         deteksi: data.deteksi
       })
     })
