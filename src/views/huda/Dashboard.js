@@ -5,7 +5,7 @@ import { database, firestore } from "config";
 import { collection, onSnapshot } from 'firebase/firestore'
 
 import HistoryChart from "components/Cards/HudaHistory";
-import CardHistoryTable from "components/Cards/CardHistoryTable.js";
+import CardHistoryTable from "components/Cards/CardHistoryTableHuda.js";
 
 export default function Dashboard() {
   const [data, setData] = useState({})
@@ -180,7 +180,7 @@ export default function Dashboard() {
           <option value="conductivity" >Conductivity</option>
           <option value="turbidity" >Turbidity</option>
           <option value="warna_minyak" >Warna Minyak</option>
-          <option value="total_proses" >Total Proses</option>
+          {/* <option value="total_proses" >Total Proses</option> */}
         </select>
       </div>
       <div className="mt-4 flex flex-row items-center justify-center">

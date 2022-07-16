@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
+import moment from "moment";
 
 export default function HistoryChart(props) {
   useEffect(() => {
     const propsData = props.data.sort((a, b) => a.createdAt - b.createdAt)
-    const labels = propsData.map(i => i.tglText)
+    const labels = propsData.map(i => moment.unix(i.createdAt).format("HH:mm"))
     const alias = props.source === 'minyak_jahat' ? 'minyak_jelek' : props.source
     const data = propsData.map(i => i[alias])
     const config = {
