@@ -1,20 +1,21 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
 
-const mappingSatuan = {
-  intensitasSayur: 'lux',
-  intensitasBuah: 'lux',
-  phSayur: '',
-  phBuah: '',
-  suhuSayur: '℃',
-  suhuBuah: '℃',
-}
+// const mappingSatuan = {
+//   intensitasSayur: 'lux',
+//   intensitasBuah: 'lux',
+//   phSayur: '',
+//   phBuah: '',
+//   suhuSayur: '℃',
+//   suhuBuah: '℃',
+// }
+
 export default function HistoryChart(props) {
   useEffect(() => {
     const propsData = props.data.slice(0, 6).sort((a, b) => a.createdAt - b.createdAt)
     const labels = propsData.map(i => i.tglText)
-    const data1 = propsData.map(i => `${i[props.source1]} ${mappingSatuan[props.source1]}`)
-    const data2 = propsData.map(i => `${i[props.source2]} ${mappingSatuan[props.source2]}`)
+    const data1 = propsData.map(i => i[props.source1])
+    const data2 = propsData.map(i => i[props.source2])
     const config = {
       type: "line",
       data: {
