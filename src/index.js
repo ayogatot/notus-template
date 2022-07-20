@@ -10,6 +10,7 @@ import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
 import Huda from "layouts/Huda.js";
 import Aulia from "layouts/Aulia.js";
+import Reni from "layouts/Reni.js";
 
 // views without layouts
 
@@ -25,6 +26,7 @@ ReactDOM.render(
       <Route path="/auth" component={Auth} />
       <Route path="/huda" component={Huda} />
       <Route path="/aulia" component={Aulia} />
+      <Route path="/reni" component={Reni} />
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
       <Route path="/profile" exact component={Profile} />
