@@ -29,6 +29,9 @@ function Home() {
 
   useEffect(() => {
     const _user = JSON.parse(localStorage.getItem("user"));
+    if (!_user) {
+      toAuth();
+    }
     setUser(_user);
 
     const sensorRef = ref(database, "telkom");
