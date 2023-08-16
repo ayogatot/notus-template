@@ -246,7 +246,6 @@ function Home() {
                 </table>
               </div>
             </div>
-
             <div
               style={{ width: "80%", height: "40%" }}
               className="flex flex-col mt-6"
