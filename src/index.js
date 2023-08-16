@@ -18,6 +18,9 @@ import Landing from "views/Landing.js";
 import Profile from "views/Profile.js";
 // import Index from "views/Index.js";
 
+import AuthTelkom from "views/telkom/Auth";
+import HomeTelkom from "views/telkom/Home";
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
@@ -27,12 +30,15 @@ ReactDOM.render(
       <Route path="/huda" component={Huda} />
       <Route path="/aulia" component={Aulia} />
       <Route path="/reni" component={Reni} />
+      <Route path="/reni" component={Reni} />
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
       <Route path="/profile" exact component={Profile} />
       <Route path="/" exact>
         <Redirect to="/admin" />
       </Route>
+      <Route path="/telkom/auth" component={AuthTelkom} />
+      <Route path="/telkom/home" component={HomeTelkom} />
       {/* add redirect for first page */}
       {/* <Redirect from="*" to="/" /> */}
     </Switch>
