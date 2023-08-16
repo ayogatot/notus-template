@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { firestore } from "config";
-import { collection, onSnapshot, where } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 
 import Telkom1 from "../../../assets/img/telkom1.png";
 import Swal from "sweetalert2";
@@ -68,7 +68,11 @@ function Auth() {
   return (
     <div>
       <div style={{ height: "15vh" }} className="bg-white flex justify-end">
-        <img src={Telkom1} style={{ height: "80%", marginRight: 40 }} />
+        <img
+          alt="logo"
+          src={Telkom1}
+          style={{ height: "80%", marginRight: 40 }}
+        />
       </div>
       <div
         style={{ height: "85vh" }}

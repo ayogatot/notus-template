@@ -324,7 +324,11 @@ function Home() {
         style={{ height: "15vh", background: "#e0e0e0" }}
         className="flex justify-between items-center px-6"
       >
-        <img src={Telkom1} style={{ height: 100, marginRight: 40 }} />
+        <img
+          alt="logo"
+          src={Telkom1}
+          style={{ height: 100, marginRight: 40 }}
+        />
         <p
           style={{ fontSize: "48pt", letterSpacing: 10 }}
           className="font-bold"
