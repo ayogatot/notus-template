@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Telkom1 from "../../../assets/img/telkom2.png";
 import { useHistory } from "react-router-dom";
 import { ref, onValue, set } from "firebase/database";
@@ -25,15 +25,9 @@ function Home() {
   const [historyNode1, setHistoryNode1] = useState([]);
   const [historyNode2, setHistoryNode2] = useState([]);
 
-  const toAuth = () => history.push("/telkom/auth");
+  const toAuth = useCallback(() => history.push("/telkom/auth"), [history]);
 
   useEffect(() => {
-    const _user = JSON.parse(localStorage.getItem("user"));
-    if (!_user) {
-      toAuth();
-    }
-    setUser(_user);
-
     const sensorRef = ref(database, "telkom");
     onValue(sensorRef, (snapshot) => {
       const { node1, node2, IsManual, FanStatus } = snapshot.val();
@@ -68,6 +62,14 @@ function Home() {
       }
     );
   }, []);
+
+  useEffect(() => {
+    const _user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      toAuth();
+    }
+    setUser(_user);
+  }, [user, toAuth]);
 
   const setFan = ({ manual = null, fan = null }) => {
     const controlRef = ref(database, "telkom");
@@ -344,7 +346,10 @@ function Home() {
         <p className="text-white font-bold">{user?.name}</p>
         <p className="text-white font-bold px-2">|</p>
         <p
-          onClick={toAuth}
+          onClick={() => {
+            localStorage.removeItem("user");
+            toAuth();
+          }}
           style={{ textDecoration: "underline" }}
           className="text-white font-bold cursor-pointer"
         >
