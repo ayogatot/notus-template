@@ -28,6 +28,14 @@ function Home() {
   const toAuth = useCallback(() => history.push("/telkom/auth"), [history]);
 
   useEffect(() => {
+    document.title = "Telkom";
+
+    const _user = JSON.parse(localStorage.getItem("user"));
+    if (!_user) {
+      history.push("/telkom/auth");
+    }
+    setUser(_user);
+
     const sensorRef = ref(database, "telkom");
     onValue(sensorRef, (snapshot) => {
       const { node1, node2, IsManual, FanStatus } = snapshot.val();
@@ -61,15 +69,7 @@ function Home() {
         }, 2000);
       }
     );
-  }, []);
-
-  useEffect(() => {
-    const _user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      toAuth();
-    }
-    setUser(_user);
-  }, [user, toAuth]);
+  }, [history]);
 
   const setFan = ({ manual = null, fan = null }) => {
     const controlRef = ref(database, "telkom");

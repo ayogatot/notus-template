@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { firestore } from "config";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -64,6 +64,8 @@ function Auth() {
       }
     );
   };
+
+  useEffect(() => (document.title = "Telkom"), []);
 
   return (
     <div>
