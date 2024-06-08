@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { firestore } from "config";
 import { collection, onSnapshot } from "firebase/firestore";
 
-import Telkom1 from "../../../assets/img/telkom1.png";
+import Telkom1 from "../../../assets/img/monitoring.png";
 import Swal from "sweetalert2";
 
 function Auth() {
@@ -12,7 +12,7 @@ function Auth() {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
-  const toHome = () => history.push("/telkom/home");
+  const toHome = () => history.push("/monitoring/home");
   const onSubmit = () => {
     setIsLoading(true);
     if (!(email.length > 0) || !(password.length > 0)) {
@@ -25,7 +25,7 @@ function Auth() {
     }
 
     onSnapshot(
-      collection(firestore, "tahap1", "telkom", "users"),
+      collection(firestore, "monitoring", "users", "users"),
       (docSnap) => {
         const data = [];
         docSnap.forEach(async (d) => {
@@ -69,16 +69,17 @@ function Auth() {
 
   return (
     <div>
-      <div style={{ height: "15vh" }} className="bg-white flex justify-end">
+      <div style={{ height: "15vh" }} className="bg-white flex justify-end items-center">
         <img
           alt="logo"
           src={Telkom1}
-          style={{ height: "80%", marginRight: 40 }}
+          style={{ height: "50%" }}
         />
+        <p className="mx-4" style={{ fontSize: "30px" }}>Smart Monitoring</p>
       </div>
       <div
-        style={{ height: "85vh" }}
-        className="bg-red-600 flex justify-center items-center"
+        style={{ height: "85vh", backgroundColor: '#2f73ab' }}
+        className="flex justify-center items-center"
       >
         <div className="w-full lg:w-4/12 px-4">
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
