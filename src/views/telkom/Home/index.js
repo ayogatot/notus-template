@@ -88,7 +88,7 @@ const CardStatus = ({ title, value }) => {
     >
       <p style={{ fontSize: "12pt" }}>{title}: </p>
       <p style={{ fontSize: "20pt", color: "#000", fontWeight: "bold" }}>
-        {value} {unit[title.toLowerCase()]}
+        {Number(value || 0).toFixed(2)} {unit[title.toLowerCase()]}
       </p>
       {/* <GaugeChart id={`gauge-chart-${title}`} style={{ height: 150 }} textColor='#000' percent={0.85} animDelay={0} /> */}
     </div>
@@ -239,6 +239,19 @@ function Home() {
     },
   };
 
+  const resolveCost = () => {
+    let cost = 0;
+    if (data?.Mode === '250VA' || data?.Mode === '450VA') {
+      cost =  415 * data?.energy;
+    } else if(data?.mode === '900VA') {
+      cost = 1352 * data?.energy
+    } else {
+      cost = 1444.70 * data?.energy
+    }
+
+    return cost.toFixed(2)
+  }
+
   const ButtonList = ({ title, onClick }) => {
     return (
       <p
@@ -314,7 +327,7 @@ function Home() {
               type='select'
               onClick={changeMode}
             />
-            <Card title='Cost' value={data?.cost} className={"mt-4"} />
+            <Card title='Cost' value={resolveCost()} className={"mt-4"} />
           </div>
 
           <div
