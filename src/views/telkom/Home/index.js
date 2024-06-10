@@ -57,7 +57,7 @@ const Card = ({ title, type = "text", value, className, onClick }) => {
             <option value='450VA'>450VA</option>
             <option value='900VA'>900VA</option>
             <option value='1300VA'>1300VA</option>
-            <option value='2200VA'>2520VA</option>
+            <option value='2200VA'>2200VA</option>
           </select>
           <p
             onClick={() => onClick(selected)}
