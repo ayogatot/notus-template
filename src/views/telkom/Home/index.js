@@ -58,6 +58,8 @@ const Card = ({ title, type = "text", value, className, onClick }) => {
             <option value='900VA'>900VA</option>
             <option value='1300VA'>1300VA</option>
             <option value='2200VA'>2200VA</option>
+            <option value='3500VA'>3500VA</option>
+            <option value='5500VA'>5500VA</option>
           </select>
           <p
             onClick={() => onClick(selected)}
@@ -243,7 +245,9 @@ function Home() {
     let cost = 0;
     if (data?.Mode === '250VA' || data?.Mode === '450VA') {
       cost =  415 * data?.energy;
-    } else if(data?.mode === '900VA') {
+    } else if (data?.Mode === '3500VA' || data?.Mode === '5500VA') {
+      cost =  1699.53 * data?.energy;
+    } else if (data?.mode === '900VA') {
       cost = 1352 * data?.energy
     } else {
       cost = 1444.70 * data?.energy
