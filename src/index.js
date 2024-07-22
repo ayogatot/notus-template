@@ -20,6 +20,7 @@ import "assets/styles/tailwind.css";
 
 import AuthTelkom from "views/telkom/Auth";
 import HomeTelkom from "views/telkom/Home";
+import Maintenance from "views/Maintenance";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -39,6 +40,7 @@ ReactDOM.render(
       </Route>
       <Route path="/monitoring/auth" component={AuthTelkom} />
       <Route path="/monitoring/home" component={HomeTelkom} />
+      <Route path="/maintenance" component={Maintenance} />
       {/* add redirect for first page */}
       {/* <Redirect from="*" to="/" /> */}
     </Switch>
