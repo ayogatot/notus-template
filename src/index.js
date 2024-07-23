@@ -35,12 +35,13 @@ ReactDOM.render(
       {/* add routes without layouts */}
       {/* <Route path="/landing" exact component={Landing} />
       <Route path="/profile" exact component={Profile} /> */}
-      <Route path="/" exact>
+      <Route path="/" component={Maintenance} />
+      {/* <Route path="/" exact>
         <Redirect to="/monitoring/home" />
-      </Route>
+      </Route> */}
       <Route path="/monitoring/auth" component={AuthTelkom} />
       <Route path="/monitoring/home" component={HomeTelkom} />
-      <Route path="/maintenance" component={Maintenance} />
+      {/* <Route path="/maintenance" component={Maintenance} /> */}
       {/* add redirect for first page */}
       {/* <Redirect from="*" to="/" /> */}
     </Switch>
