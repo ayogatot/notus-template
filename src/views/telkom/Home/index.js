@@ -111,8 +111,6 @@ function Home() {
   const toAuth = useCallback(() => history.push("/monitoring/auth"), [history]);
 
   useEffect(() => {
-    document.title = "CeramosIOT";
-
     const _user = JSON.parse(localStorage.getItem("user"));
     if (!_user) {
       history.push("/monitoring/auth");
