@@ -65,7 +65,7 @@ function Auth() {
     );
   };
 
-  useEffect(() => (document.title = "Telkom"), []);
+  useEffect(() => (document.title = "CeramosIOT"), []);
 
   return (
     <div>
